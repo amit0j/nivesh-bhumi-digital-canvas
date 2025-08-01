@@ -190,7 +190,8 @@ All colors MUST be HSL. Sophisticated color palette with deep blues, golds, and 
   .cursor-outer {
     width: 20px;
     height: 20px;
-    background: hsl(var(--secondary));
+    background: hsl(var(--primary));
+    border: 2px solid hsl(var(--secondary));
     border-radius: 50%;
     mix-blend-mode: difference;
     transition: transform 0.1s ease-out;
@@ -212,6 +213,6 @@ All colors MUST be HSL. Sophisticated color palette with deep blues, golds, and 
   /* Hover states */
   .cursor-hover .cursor-outer {
     transform: translate(-50%, -50%) scale(1.5);
-    background: hsl(var(--primary));
+    border-width: 3px;
   }
 }
