@@ -172,4 +172,48 @@ All colors MUST be HSL. Sophisticated color palette with deep blues, golds, and 
   .cursor-fancy:hover {
     transform: scale(1.05);
   }
+
+  /* Custom elegant cursor */
+  * {
+    cursor: none;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: var(--cursor-y, 0);
+    left: var(--cursor-x, 0);
+    width: 20px;
+    height: 20px;
+    background: hsl(var(--secondary));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease-out;
+    transform: translate(-50%, -50%);
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: var(--cursor-dot-y, 0);
+    left: var(--cursor-dot-x, 0);
+    width: 8px;
+    height: 8px;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.05s ease-out;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Hover states for interactive elements */
+  body:has(a:hover)::before,
+  body:has(button:hover)::before,
+  body:has(.cursor-fancy:hover)::before {
+    transform: translate(-50%, -50%) scale(1.5);
+    background: hsl(var(--primary));
+  }
 }
