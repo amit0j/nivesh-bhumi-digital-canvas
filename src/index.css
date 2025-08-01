@@ -178,41 +178,39 @@ All colors MUST be HSL. Sophisticated color palette with deep blues, golds, and 
     cursor: none;
   }
 
-  body::before {
-    content: '';
+  /* Cursor container */
+  .custom-cursor {
     position: fixed;
-    top: var(--cursor-y, 0);
-    left: var(--cursor-x, 0);
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .cursor-outer {
     width: 20px;
     height: 20px;
     background: hsl(var(--secondary));
     border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
     mix-blend-mode: difference;
     transition: transform 0.1s ease-out;
     transform: translate(-50%, -50%);
   }
 
-  body::after {
-    content: '';
-    position: fixed;
-    top: var(--cursor-dot-y, 0);
-    left: var(--cursor-dot-x, 0);
+  .cursor-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 8px;
     height: 8px;
     background: hsl(var(--primary));
     border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transition: transform 0.05s ease-out;
     transform: translate(-50%, -50%);
+    transition: transform 0.05s ease-out;
   }
 
-  /* Hover states for interactive elements */
-  body:has(a:hover)::before,
-  body:has(button:hover)::before,
-  body:has(.cursor-fancy:hover)::before {
+  /* Hover states */
+  .cursor-hover .cursor-outer {
     transform: translate(-50%, -50%) scale(1.5);
     background: hsl(var(--primary));
   }
