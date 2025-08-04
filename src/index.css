@@ -190,29 +190,21 @@ All colors MUST be HSL. Sophisticated color palette with deep blues, golds, and 
   .cursor-outer {
     width: 20px;
     height: 20px;
-    background: hsl(var(--primary));
-    border: 2px solid hsl(var(--secondary));
-    border-radius: 50%;
+    background: hsl(222, 84%, 15%); /* Navy blue */
+    border: 2px solid hsl(38, 85%, 65%); /* Gold */
+    clip-path: polygon(0% 0%, 0% 80%, 20% 60%, 40% 100%, 50% 90%, 25% 50%, 100% 0%);
     mix-blend-mode: difference;
     transition: transform 0.1s ease-out;
-    transform: translate(-50%, -50%);
+    transform: translate(-10%, -10%);
   }
 
   .cursor-inner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 8px;
-    height: 8px;
-    background: hsl(var(--primary));
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.05s ease-out;
+    display: none; /* Hide inner dot for cursor shape */
   }
 
   /* Hover states */
   .cursor-hover .cursor-outer {
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-10%, -10%) scale(1.2);
     border-width: 3px;
   }
 }
